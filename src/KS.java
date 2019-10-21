@@ -4,10 +4,10 @@ public class KS {
 	int w[];
 	int b[];
 	char finalSolution[];
-	int numberOfPopulation=8;
+	int numberOfPopulation;
 	char population[][]; 
-	int totalBenefit[]=new int[numberOfPopulation];
-	int totalWeight[]=new int[numberOfPopulation];
+	int totalBenefit[];
+	int totalWeight[];
 	Vector <char[]> childs=new Vector<>();
 	public void settestCases(int generations)
 	{
@@ -27,13 +27,17 @@ public class KS {
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Please Enter Number of Generations: ");
-		settestCases(input.nextInt());
 		setnumberOfItems(input.nextInt());
+		numberOfPopulation=numberOfItems*2;
+		generations=numberOfItems*100;
+		System.out.println("XXXXXXXXXXXXXXxx"+numberOfItems+numberOfPopulation+generations);
 		setsizeOfKnapSack(input.nextInt());
 		w=new int[numberOfItems];
 		b=new int[numberOfItems];
 		finalSolution=new char[numberOfItems];
-		population=new char[numberOfPopulation][numberOfItems];
+		population=new char[numberOfItems*2][numberOfItems];
+		totalBenefit=new int[numberOfItems*2];
+		totalWeight=new int[numberOfItems*2];
 		for(int i=0;i<numberOfItems;i++)
 		{
 			w[i]=input.nextInt();
@@ -331,6 +335,8 @@ public class KS {
 	}
 	public static void main(String[] args) {
 			KS object=new KS();
-			object.perform();	
+			for(int i=0;i<20;i++) {
+				object.perform();	
+			}	
 	}
 }
